@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobel/login_screen.dart';
 import 'package:mobel/logout.dart';
 
+import 'package:flutter/material.dart';
+
 class MainMenu extends StatefulWidget {
   const MainMenu({super.key});
 
@@ -10,6 +12,10 @@ class MainMenu extends StatefulWidget {
 }
 
 class _MainMenuState extends State<MainMenu> {
+  double _iconSize1 = 100;
+  double _iconSize2 = 100;
+  double _iconSize3 = 100;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,39 +48,104 @@ class _MainMenuState extends State<MainMenu> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Icon 1'),
-            const SizedBox(height: 20),
-            GestureDetector(
-              onTap: () {
-                // Navigasi ke artikel kedua
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ArtikelKedua()),
-                );
+            MouseRegion(
+              onEnter: (event) {
+                setState(() {
+                  _iconSize1 = 150;
+                });
               },
-              child: Container(
-                margin: const EdgeInsets.all(20),
-                child: Image.asset('assets/img/icon2.jpg',
-                    width: 100, height: 100),
+              onExit: (event) {
+                setState(() {
+                  _iconSize1 = 100;
+                });
+              },
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ArtikelPertama()),
+                  );
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  width: _iconSize1,
+                  height: _iconSize1,
+                  child: Image.asset(
+                    'assets/img/icon1.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
-            const Text('Icon 2'),
+            const Text('Icon 1',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 20),
-            GestureDetector(
-              onTap: () {
-                // Navigasi ke artikel ketiga
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ArtikelKetiga()),
-                );
+            MouseRegion(
+              onEnter: (event) {
+                setState(() {
+                  _iconSize2 = 150;
+                });
               },
-              child: Container(
-                margin: const EdgeInsets.all(20),
-                child: Image.asset('assets/img/icon3.jpg',
-                    width: 100, height: 100),
+              onExit: (event) {
+                setState(() {
+                  _iconSize2 = 100;
+                });
+              },
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ArtikelKedua()),
+                  );
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  width: _iconSize2,
+                  height: _iconSize2,
+                  child: Image.asset(
+                    'assets/img/icon2.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
-            const Text('Icon 3'),
+            const Text('Icon 2',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            MouseRegion(
+              onEnter: (event) {
+                setState(() {
+                  _iconSize3 = 150;
+                });
+              },
+              onExit: (event) {
+                setState(() {
+                  _iconSize3 = 100;
+                });
+              },
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ArtikelKetiga()),
+                  );
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  width: _iconSize3,
+                  height: _iconSize3,
+                  child: Image.asset(
+                    'assets/img/icon3.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            const Text('Icon 3',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ],
         ),
       ),
@@ -114,21 +185,27 @@ class ArtikelPertama extends StatelessWidget {
           ),
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            Text(
-              'Judul Artikel Pertama',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity, // membuat gambar menjadi full kanan dan kiri screen
+            height: MediaQuery.of(context).size.height * 0.3, // membuat tinggi gambar menjadi 30% dari ukuran layar
+            child: Image.asset(
+              'assets/img/icon1.jpg',
+              fit: BoxFit.cover, // membuat gambar menyesuaikan dengan ukuran layar
             ),
-            SizedBox(height: 20),
-            Text(
-              'Isi artikel pertama. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 20),
+          const Text(
+            'Judul Artikel Pertama',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 20),
+          const Text(
+            'Isi artikel pertama. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+            style: TextStyle(fontSize: 18),
+          ),
+        ],
       ),
     );
   }

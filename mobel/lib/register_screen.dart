@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobel/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
@@ -14,7 +16,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Register'),
+        title: const Text('Register'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -23,7 +25,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             children: [
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Nama',
                   border: OutlineInputBorder(),
                 ),
@@ -35,9 +37,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
                 onSaved: (value) => _name = value,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Username',
                   border: OutlineInputBorder(),
                 ),
@@ -49,9 +51,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
                 onSaved: (value) => _username = value,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
                 ),
@@ -66,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
                 onSaved: (value) => _password = value,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -82,13 +84,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         );
                       }
                     },
-                    child: Text('Register'),
+                    child: const Text('Register'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       _formKey.currentState?.reset();
                     },
-                    child: Text('Cancel'),
+                    child: const Text('Cancel'),
                   ),
                 ],
               ),

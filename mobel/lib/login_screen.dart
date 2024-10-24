@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobel/mainmenu.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -14,23 +16,23 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Icon(
+            const Icon(
               Icons.person, // Icon user besar
               size: 100,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Form(
               key: _formKey,
               child: Column(
                 children: [
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Username',
                       border: OutlineInputBorder(),
                     ),
@@ -42,9 +44,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     onSaved: (value) => _username = value,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Password',
                       border: OutlineInputBorder(),
                     ),
@@ -57,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     onSaved: (value) => _password = value,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -69,17 +71,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MainMenu()),
+                                  builder: (context) =>  MainMenu()),
                             );
                           }
                         },
-                        child: Text('Login'),
+                        child: const Text('Login'),
                       ),
                       ElevatedButton(
                         onPressed: () {
                           _formKey.currentState?.reset();
                         },
-                        child: Text('Cancel'),
+                        child: const Text('Cancel'),
                       ),
                     ],
                   ),

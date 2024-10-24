@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobel/login_screen.dart';
 
 class LogoutScreen extends StatelessWidget {
+  const LogoutScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,11 +11,11 @@ class LogoutScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Arigatou gozaimasu',
               style: TextStyle(fontSize: 24),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -21,7 +23,7 @@ class LogoutScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
-              child: Text('Login'),
+              child: const Text('Login'),
             ),
           ],
         ),
